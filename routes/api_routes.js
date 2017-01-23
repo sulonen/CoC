@@ -1,10 +1,16 @@
 'use strict';
 
 let parser = require('body-parser');
-let Character = ('/../models/character_model');
+let Character = require('../models/character_model');
+let seed = require('../lib/seed.json');
 
 module.exports = (router) => {
   router.use(parser.json());
+
+  router.route('/seed')
+    .get((req, res) => {
+      res.json(seed);
+    });
 
   router.route('/characters')
     .get((req, res) => {
