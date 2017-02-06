@@ -5,7 +5,7 @@
   "main": "api_server.js",
   "scripts": {
     "test": "",
-    "start": "nodemon api_server.js"
+    "start": "nodemon --inspect api_server.js"
   },
   "repository": {
     "type": "git",
