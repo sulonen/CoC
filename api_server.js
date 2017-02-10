@@ -5,7 +5,7 @@ let mongoose = require('mongoose');
 let morgan = require('morgan');
 const PORT = process.env.port || 3000;
 
-const MONGO_DB = process.env.MONGO_DB || 'mongodb://localhost/db';
+const MONGO_DB = process.env.MONGO_DB || 'mongodb://localhost/coc';
 mongoose.connect(MONGO_DB);
 
 let authRouter = express.Router();
