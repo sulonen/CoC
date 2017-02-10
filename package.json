@@ -1,0 +1,38 @@
+{
+  "name": "coc",
+  "version": "2.0.0",
+  "description": "Call of Cthulhu Character Generator",
+  "main": "api_server.js",
+  "scripts": {
+    "test": "",
+    "start": "nodemon --inspect api_server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulonen/CoC.git"
+  },
+  "keywords": [
+    "Cthulhu",
+    "CoC",
+    "RPG"
+  ],
+  "author": {
+    "name": "Kevin Sulonen",
+    "email": "kevin.sulonen@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sulonen/CoC/issues"
+  },
+  "homepage": "https://github.com/sulonen/CoC#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.2.1",
+    "mongoose": "^4.7.7"
+  },
+  "devDependencies": {
+    "morgan": "^1.7.0"
+  }
+}
