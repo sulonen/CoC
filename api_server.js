@@ -1,10 +1,18 @@
 'use strict';
 
 let express = require('express');
+let mongoose = require('mongoose');
 let morgan = require('morgan');
 const PORT = process.env.port || 3000;
 
+const MONGO_DB = process.env.MONGO_DB || 'mongodb://localhost/db';
+mongoose.connect(MONGO_DB);
+
+let authRouter = express.Router();
+require('./routes/auth_routes')(authRouter);
+
 let apiRouter = express.Router();
+require('./routes/user_routes')(apiRouter);
 require('./routes/api_routes')(apiRouter);
 
 let app = module.exports = exports = express();
@@ -18,9 +26,10 @@ app.use((req, res, next) => {
              'GET, POST, PUT, DELETE');
   next();
 });
-app.use(express.static('./dist'));
-app.use('/', apiRouter);
+
 app.use(morgan('dev'));
+app.use('/', authRouter);
+app.use('/', apiRouter);
 
 app.listen(PORT, () => {
   console.log('Server listening on port ' + PORT);
