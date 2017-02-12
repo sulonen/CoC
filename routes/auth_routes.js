@@ -13,7 +13,7 @@ module.exports = (router) => {
       if (user) {
         return res.status(400).json({msg: 'That username is already in use'});  
       } else {
-        var newUser = new User();
+        let newUser = new User();
         if (!((req.body.email || '').length
             && (req.body.password || '').length > 7)) {
           return res.status(400).json({msg: 'Invalid username or password'});
@@ -22,6 +22,7 @@ module.exports = (router) => {
         newUser.username = req.body.username || req.body.email;
         newUser.authentication.email = req.body.email;
         newUser.hashPassword(req.body.password);
+        newUser.admin = req.body.admin;
         newUser.save((err, data) => {
           if (err) return handleDBError(err, res);
           res.status(200).json({
@@ -31,7 +32,6 @@ module.exports = (router) => {
         });
       }
     });
-
   });
 
   router.get('/signin', basicHTTP, (req, res) => {

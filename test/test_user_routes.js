@@ -20,9 +20,10 @@ describe('Integration Tests (User Routes)', () => {
     request('localhost:3000')
       .post('/signup')
       .send({
-        name: 'Donald Knuth',
+        username: 'Donald Knuth',
         email: 'taocp@cs.stanford.edu',
-        password: 'grammar12'
+        password: 'grammar12',
+        admin: 'true'
       })
       .end((err, res) => {
         if (err) console.log(err);
@@ -148,7 +149,7 @@ describe('Integration Tests (User Routes)', () => {
       request('localhost:3000')
         .post('/signup')
         .send({
-          name: 'Donald Knuth',
+          username: 'Donald Knuth',
           email: 'taocp@cs.stanford.edu',
           password: 'grammar12'
         })

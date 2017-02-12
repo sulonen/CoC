@@ -4,6 +4,7 @@
   "description": "Call of Cthulhu Character Generator",
   "main": "api_server.js",
   "scripts": {
+    "dbstart": "mongod --dbpath ./data",
     "test": "mocha",
     "start": "nodemon --inspect api_server.js"
   },
@@ -12,6 +13,7 @@
     "url": "git+https://github.com/sulonen/CoC.git"
   },
   "keywords": [
+    "Call of Cthulhu",
     "Cthulhu",
     "CoC",
     "RPG"
