@@ -4,7 +4,7 @@
   "description": "Call of Cthulhu Character Generator",
   "main": "api_server.js",
   "scripts": {
-    "test": "",
+    "test": "mocha",
     "start": "nodemon --inspect api_server.js"
   },
   "repository": {
@@ -33,6 +33,8 @@
     "mongoose": "^4.7.7"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "morgan": "^1.7.0"
   }
 }
