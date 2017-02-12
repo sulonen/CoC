@@ -38,6 +38,20 @@ describe('Integration Tests (User Routes)', () => {
     });
   });
 
+  describe('Test token generation:', () => {
+    it('should return a token on successful login', (done) => {
+      request('localhost:3000')
+          .get('/signin')
+          .auth('taocp@cs.stanford.edu', 'grammar12')
+          .end((err, res) => {
+            expect(err).to.eql(null);
+            expect(res.status).to.eql(200);
+            expect(res.body).to.have.property('token');
+            done();
+          });
+    });
+  });
+
   describe('Test user routes:', () => {
     it('should deny access without an authorization token', (done) => {
       request('localhost:3000')
@@ -124,7 +138,7 @@ describe('Integration Tests (User Routes)', () => {
       request('localhost:3000')
         .put('/users/' + ada_id)
         .set('token', authToken)
-        .send({name: 'Ada Lovelace'})
+        .send({username: 'Ada Lovelace'})
         .end((err, res) => {
           expect(err).to.eql(null);
           expect(res.body.msg).to.eql('success');
@@ -141,33 +155,6 @@ describe('Integration Tests (User Routes)', () => {
         expect(res.body.msg).to.eql('User removed');
         done();
       });
-    });
-  });
-
-  describe('Test token generation:', () => {
-    before((done) => {
-      request('localhost:3000')
-        .post('/signup')
-        .send({
-          username: 'Donald Knuth',
-          email: 'taocp@cs.stanford.edu',
-          password: 'grammar12'
-        })
-        .end(() => {
-          done();
-        });
-    });
-
-    it('should return a token on successful login', (done) => {
-      request('localhost:3000')
-        .get('/signin')
-        .auth('taocp@cs.stanford.edu', 'grammar12')
-        .end((err, res) => {
-          expect(err).to.eql(null);
-          expect(res.status).to.eql(200);
-          expect(res.body).to.have.property('token');
-          done();
-        });
     });
   });
 
