@@ -12,7 +12,7 @@ require('./../api_server');
 
 describe('Integration Tests (User Routes)', () => {
 
-  var ada_id,
+  let ada_id,
     alan_id,
     authToken;
 
