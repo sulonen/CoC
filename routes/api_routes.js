@@ -21,7 +21,7 @@ module.exports = (router) => {
     })
 
     .post((req, res) => {
-      var newCharacter = new Character(req.body);
+      let newCharacter = new Character(req.body);
       newCharacter.save((err, Character) => {
         if (err) return console.log(err);
         res.json(Character);
