@@ -32,7 +32,7 @@ let userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.hashPassword = function(password) {
-  var hash
+  let hash
     = this.authentication.password
     = bcrypt.hashSync(password, 8);
   return hash;
@@ -44,7 +44,7 @@ userSchema.methods.comparePassword = function(password) {
 };
 
 userSchema.methods.generateToken = function() {
-  return jwt.sign({id: this._id, admin: this.admin}, 'CHANGEME');
+  return jwt.sign({id: this._id, admin: this.admin}, 'STRANGEAEONS');
 };
 
 module.exports = mongoose.model('Users', userSchema);
