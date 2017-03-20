@@ -3,10 +3,10 @@
 const mongoose = require('mongoose');
 const chai = require('chai');
 const chaihttp = require('chai-http');
+chai.use(chaihttp);
 const request = chai.request;
 const expect = chai.expect;
 
-chai.use(chaihttp);
 process.env.MONGO_DB = 'mongodb://localhost/test';
 require('./../api_server');
 
