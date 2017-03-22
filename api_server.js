@@ -9,11 +9,11 @@ const MONGO_DB = process.env.MONGO_DB || 'mongodb://localhost/coc';
 mongoose.connect(MONGO_DB);
 
 let authRouter = express.Router();
-require('./routes/auth_routes')(authRouter);
+require(__dirname + '/routes/auth_routes')(authRouter);
 
 let apiRouter = express.Router();
-require('./routes/user_routes')(apiRouter);
-require('./routes/api_routes')(apiRouter);
+require(__dirname + '/routes/user_routes')(apiRouter);
+require(__dirname + '/routes/character_routes')(apiRouter);
 
 let app = module.exports = exports = express();
 
