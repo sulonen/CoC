@@ -39,6 +39,7 @@ userSchema.methods.hashPassword = function(password) {
 };
 
 userSchema.methods.comparePassword = function(password) {
+  if (!password) return false;
   return bcrypt.compareSync(password,
     this.authentication.password);
 };
