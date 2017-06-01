@@ -3,10 +3,9 @@
 This tool is intended to simplify the creation of Investigators for the
 *Call of Cthulhu* roleplaying game.
 
-This is a refactor of a [previous version](https://github.com/sulonen/
-CoC-Legacy). My intent with this project is to provide some basic
-persistence and to generalize the backend so that it can support similar
-efforts for other RPG platforms.
+This is a refactor of a [previous version](https://github.com/sulonen/CoC-Legacy).
+My intent with this project is to provide some basic persistence and to generalize
+the backend so that it can support similar efforts for other RPG platforms.
 
 Chaosium very generously allows users of their material to make stuff
 like this and share it without any fuss. That being said, here's the
