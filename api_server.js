@@ -14,6 +14,7 @@ require(__dirname + '/routes/auth_routes')(authRouter);
 let apiRouter = express.Router();
 require(__dirname + '/routes/user_routes')(apiRouter);
 require(__dirname + '/routes/character_routes')(apiRouter);
+require(__dirname + '/routes/app_routes')(apiRouter);
 
 let app = module.exports = exports = express();
 
